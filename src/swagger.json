@@ -1,0 +1,305 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "VendorSmartAPI",
+        "description": "VendorSmartAPI Documentation",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "contact": {
+            "email": "engthabata@gmail.com"
+        }
+    },
+    "host": "localhost:5000",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "tags": [
+        {
+            "name": "Vendor",
+            "description": "APIs for vendors"
+        },
+        {
+            "name": "Job",
+            "description": "APIs for jobs"
+        }
+    ],
+    "basePath": "/api/v1",
+    "paths": {
+        "/vendors": {
+            "get": {
+                "summary": "Fetches list of vendors",
+                "tags": [
+                    "Vendor"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Vendor"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Creates a new vendor",
+                "tags": [
+                    "Vendor"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Vendor object that needs to be added",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Vendor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Vendor created successfully"
+                    },
+                    "400": {
+                        "description": "Error"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/vendors/{vendorId}": {
+            "get": {
+                "summary": "Fetches a vendor by ID",
+                "tags": [
+                    "Vendor"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "vendorId",
+                        "required": true,
+                        "description": "ID of the vendor to fetch",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/Vendor"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Vendor not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        
+        "/job/{jobId}": {
+            "get": {
+                "summary": "Fetches vendors by jobId",
+                "tags": [
+                    "Vendor"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "vendorId",
+                        "required": true,
+                        "description": "ID of the vendor to fetch by jobId",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/Vendor"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Vendor not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/jobs": {
+            "get": {
+                "summary": "Fetches list of jobs",
+                "tags": [
+                    "Job"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Job"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Creates a new job",
+                "tags": [
+                    "Job"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Job object that needs to be added",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Job created successfully"
+                    },
+                    "400": {
+                        "description": "Error"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/jobs/{jobId}": {
+            "get": {
+                "summary": "Fetches a job by ID",
+                "tags": [
+                    "Job"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "jobId",
+                        "required": true,
+                        "description": "ID of the job to fetch",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/Job"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Job not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Vendor": {
+            "type": "object",
+            "properties": {
+                "vendorId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "locationId": {
+                    "type": "number"
+                },
+                "serviceCategoryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "isCompliant": {
+                    "type": "boolean"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Job": {
+            "type": "object",
+            "properties": {
+                "jobId": {
+                    "type": "string"
+                },
+                "locationId": {
+                    "type": "number"
+                },
+                "serviceCategoryId": {
+                    "type": "number"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        }
+    }
+}
