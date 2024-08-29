@@ -102,6 +102,8 @@ The `VendorSmartAPI` is designed using a modular and layered architecture, separ
 - **Location**: Configured in `app.ts`
 - **Purpose**: Rate limiting is applied to prevent abuse of the API by limiting the number of requests a single client. Is ser to set to 100 requests per 15 minutes per IP address.
 
+### 10 **Logging**
+Provides visibility into the system's behavior, helps in diagnosing issues, and facilitates monitoring. Implemented using the winston library, which is a versatile and popular logging tool for Node.js applications.
 
 ### Summary:
 - **Modular Design**: The architecture is modular, separating concerns across different layers (controllers, services, models) to improve maintainability and scalability.
