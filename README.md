@@ -8,6 +8,7 @@ VendorSmartAPI is a Node.js application that provides a RESTful API for managing
 - Rate limiting to prevent abuse.
 - API documentation using Swagger.
 - Docker.
+- Logging.
 
 ## Getting-Started
 
